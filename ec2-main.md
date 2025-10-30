@@ -16,6 +16,10 @@ variable "key_name" {
   description = "SSH key pair name"
   type        = string
 }
+variable "key_name" {
+  description = "SSH key pair name for EC2 instance"
+  type        = string
+}
 
 output "public_ip" {
   value = aws_instance.app_server.public_ip
