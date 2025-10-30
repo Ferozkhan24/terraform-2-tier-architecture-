@@ -1,3 +1,6 @@
+## RDS `main`
+
+```
 resource "aws_db_instance" "db" {
   allocated_storage   = 20
   db_name             = "mydb"
@@ -26,4 +29,6 @@ variable "db_password" {
 
 output "endpoint" {
   value = aws_db_instance.db.endpoint
+```
+
 }
