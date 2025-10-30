@@ -13,7 +13,7 @@ resource "aws_db_instance" "db" {
   publicly_accessible = true
 
   tags = {
-    Name = "MyRDS"
+    Name = var.name
   }
 }
 
