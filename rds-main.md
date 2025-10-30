@@ -26,6 +26,11 @@ variable "db_password" {
   description = "Database admin password"
   type        = string
 }
+variable "name" {
+  description = "RDS instance name tag"
+  type        = string
+  default     = "MyRDS"
+}
 
 output "endpoint" {
   value = aws_db_instance.db.endpoint
