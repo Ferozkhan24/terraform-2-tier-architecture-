@@ -1,3 +1,4 @@
+```
 module "ec2" {
   source   = "./modules/ec2"
   key_name = "Feroz"  # Replace with your actual key name
@@ -16,3 +17,4 @@ output "ec2_public_ip" {
 output "rds_endpoint" {
   value = module.rds.endpoint
 }
+```
