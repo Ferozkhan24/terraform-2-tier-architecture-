@@ -3,7 +3,7 @@
 ```
 module "ec2" {
   source   = "./modules/ec2"
-  key_name = "Feroz"  # Replace with your actual key name
+  key_name = "Feroz" 
 }
 
 module "rds" {
