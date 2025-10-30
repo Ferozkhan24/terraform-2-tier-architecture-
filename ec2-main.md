@@ -1,4 +1,4 @@
-##EC2 `main`
+## EC2 `main`
 
 ```
 resource "aws_instance" "app_server" {
