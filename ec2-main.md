@@ -2,7 +2,7 @@
 
 ```
 resource "aws_instance" "app_server" {
-  ami           = "ami-02d26659fd82cf299"  # Amazon Linux 2 AMI (update for your region)
+  ami           = "ami-02d26659fd82cf299"  
   instance_type = "t2.micro"
   key_name      = var.key_name
 
