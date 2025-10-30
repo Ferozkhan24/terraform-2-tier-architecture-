@@ -1,3 +1,6 @@
+##EC2 `main`
+
+```
 resource "aws_instance" "app_server" {
   ami           = "ami-02d26659fd82cf299"  # Amazon Linux 2 AMI (update for your region)
   instance_type = "t2.micro"
@@ -14,3 +17,4 @@ variable "key_name" {
 output "public_ip" {
   value = aws_instance.app_server.public_ip
 }
+```
