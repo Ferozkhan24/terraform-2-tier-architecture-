@@ -1,9 +1,14 @@
+## EC2 `variable.tf`
+
+```
 variable "key_name" {
   description = "SSH key pair name for EC2 instance"
   type        = string
+
 }
 
 variable "name" {
   description = "Name tag for EC2 instance"
   type        = string
 }
+```
