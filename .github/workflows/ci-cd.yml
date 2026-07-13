@@ -9,6 +9,9 @@ on:
 jobs:
   ci-cd:
     runs-on: ubuntu-latest
+    env:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
 
     steps:
       # 1. Checkout Code
@@ -57,15 +60,15 @@ jobs:
 
       # 4. Log in to DockerHub (Conditional)
       - name: Log in to DockerHub
-        if: ${{ secrets.DOCKERHUB_USERNAME != '' && secrets.DOCKERHUB_TOKEN != '' }}
+        if: ${{ env.DOCKERHUB_USERNAME != '' && env.DOCKERHUB_TOKEN != '' }}
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
 
       # 5. Push Docker Image (Conditional)
       - name: Push Docker Image
-        if: ${{ secrets.DOCKERHUB_USERNAME != '' && secrets.DOCKERHUB_TOKEN != '' }}
+        if: ${{ env.DOCKERHUB_USERNAME != '' && env.DOCKERHUB_TOKEN != '' }}
         run: |
           echo "Pushing image to Docker Hub..."
           docker tag product-connect:latest feroz2004/product-connect:latest
@@ -74,7 +77,7 @@ jobs:
 
       # 6. Skip Push Warning
       - name: Skip Push Warning
-        if: ${{ secrets.DOCKERHUB_USERNAME == '' || secrets.DOCKERHUB_TOKEN == '' }}
+        if: ${{ env.DOCKERHUB_USERNAME == '' || env.DOCKERHUB_TOKEN == '' }}
         run: |
           echo "========================================================="
           echo "WARNING: Docker Hub secrets are not configured!"
